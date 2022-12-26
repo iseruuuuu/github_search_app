@@ -15,7 +15,13 @@ class SearchScreenNotifier extends StateNotifier<SearchScreenState> {
         isLoading: true,
       );
     });
-    GithubApiClient().fetch(text).then((response) {
+    // GithubApiClient().get(query: text);
+    // GithubApiClient().fetch(text).then((response) {
+    GithubApiClient().get(query: text).then((response) {
+
+
+
+
       isLoading = false;
       ref.read(searchScreenStateProvider.notifier).update((_) {
         return SearchScreenState(
