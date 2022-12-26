@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TextFieldItem extends StatelessWidget {
-  const TextFieldItem({
+class SearchTextFieldItem extends StatelessWidget {
+  const SearchTextFieldItem({
     Key? key,
     required this.onChanged,
   }) : super(key: key);

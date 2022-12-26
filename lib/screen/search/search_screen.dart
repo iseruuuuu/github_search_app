@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yumemi_code_check_app/api/github_api_client.dart';
 import 'package:yumemi_code_check_app/model/github_response.dart';
 import 'package:yumemi_code_check_app/screen/search/children/search_list_item.dart';
-import 'package:yumemi_code_check_app/screen/search/children/text_field_item.dart';
+import 'package:yumemi_code_check_app/screen/search/children/search_text_field_item.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -40,7 +40,7 @@ class _SearchScreenState extends State<SearchScreen> {
         onTap: () => FocusScope.of(context).unfocus(),
         child: Column(
           children: [
-            TextFieldItem(onChanged: load),
+            SearchTextFieldItem(onChanged: load),
             !isLoading
                 ? SearchListItem(response: _response)
                 : const Center(child: CircularProgressIndicator()),
