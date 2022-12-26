@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SearchScreenState {
   GithubResponse? get githubResponse => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isEmpty => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SearchScreenStateCopyWith<SearchScreenState> get copyWith =>
@@ -30,7 +31,7 @@ abstract class $SearchScreenStateCopyWith<$Res> {
           SearchScreenState value, $Res Function(SearchScreenState) then) =
       _$SearchScreenStateCopyWithImpl<$Res, SearchScreenState>;
   @useResult
-  $Res call({GithubResponse? githubResponse, bool isLoading});
+  $Res call({GithubResponse? githubResponse, bool isLoading, bool isEmpty});
 }
 
 /// @nodoc
@@ -48,6 +49,7 @@ class _$SearchScreenStateCopyWithImpl<$Res, $Val extends SearchScreenState>
   $Res call({
     Object? githubResponse = freezed,
     Object? isLoading = null,
+    Object? isEmpty = null,
   }) {
     return _then(_value.copyWith(
       githubResponse: freezed == githubResponse
@@ -57,6 +59,10 @@ class _$SearchScreenStateCopyWithImpl<$Res, $Val extends SearchScreenState>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isEmpty: null == isEmpty
+          ? _value.isEmpty
+          : isEmpty // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -70,7 +76,7 @@ abstract class _$$_SearchScreenStateCopyWith<$Res>
       __$$_SearchScreenStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({GithubResponse? githubResponse, bool isLoading});
+  $Res call({GithubResponse? githubResponse, bool isLoading, bool isEmpty});
 }
 
 /// @nodoc
@@ -86,6 +92,7 @@ class __$$_SearchScreenStateCopyWithImpl<$Res>
   $Res call({
     Object? githubResponse = freezed,
     Object? isLoading = null,
+    Object? isEmpty = null,
   }) {
     return _then(_$_SearchScreenState(
       githubResponse: freezed == githubResponse
@@ -96,6 +103,10 @@ class __$$_SearchScreenStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isEmpty: null == isEmpty
+          ? _value.isEmpty
+          : isEmpty // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -103,17 +114,21 @@ class __$$_SearchScreenStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SearchScreenState implements _SearchScreenState {
-  const _$_SearchScreenState({this.githubResponse, this.isLoading = false});
+  const _$_SearchScreenState(
+      {this.githubResponse, this.isLoading = false, this.isEmpty = false});
 
   @override
   final GithubResponse? githubResponse;
   @override
   @JsonKey()
   final bool isLoading;
+  @override
+  @JsonKey()
+  final bool isEmpty;
 
   @override
   String toString() {
-    return 'SearchScreenState(githubResponse: $githubResponse, isLoading: $isLoading)';
+    return 'SearchScreenState(githubResponse: $githubResponse, isLoading: $isLoading, isEmpty: $isEmpty)';
   }
 
   @override
@@ -124,11 +139,13 @@ class _$_SearchScreenState implements _SearchScreenState {
             (identical(other.githubResponse, githubResponse) ||
                 other.githubResponse == githubResponse) &&
             (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading));
+                other.isLoading == isLoading) &&
+            (identical(other.isEmpty, isEmpty) || other.isEmpty == isEmpty));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, githubResponse, isLoading);
+  int get hashCode =>
+      Object.hash(runtimeType, githubResponse, isLoading, isEmpty);
 
   @JsonKey(ignore: true)
   @override
@@ -141,12 +158,15 @@ class _$_SearchScreenState implements _SearchScreenState {
 abstract class _SearchScreenState implements SearchScreenState {
   const factory _SearchScreenState(
       {final GithubResponse? githubResponse,
-      final bool isLoading}) = _$_SearchScreenState;
+      final bool isLoading,
+      final bool isEmpty}) = _$_SearchScreenState;
 
   @override
   GithubResponse? get githubResponse;
   @override
   bool get isLoading;
+  @override
+  bool get isEmpty;
   @override
   @JsonKey(ignore: true)
   _$$_SearchScreenStateCopyWith<_$_SearchScreenState> get copyWith =>

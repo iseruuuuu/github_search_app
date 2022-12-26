@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yumemi_code_check_app/api/github_api_client.dart';
-import 'package:yumemi_code_check_app/state/search/search_screen_state.dart';
+import 'package:yumemi_code_check_app/state/search_screen_state.dart';
 
 class SearchScreenNotifier extends StateNotifier<SearchScreenState> {
   SearchScreenNotifier({required this.ref}) : super(const SearchScreenState());

@@ -14,7 +14,6 @@ class GithubApiClient {
       );
       return GithubResponse.fromJson(jsonDecode(response.body));
     } catch (error) {
-      print(error.toString());
       throw Exception(error.toString());
     }
   }
