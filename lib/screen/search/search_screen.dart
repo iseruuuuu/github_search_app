@@ -11,18 +11,27 @@ class SearchScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final readState = ref.watch(searchScreenStateProvider);
+    final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(elevation: 0),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Column(
           children: [
-            SearchTextFieldItem(
-              onChanged: ref.read(searchScreenNotifierProvider).load,
+            SizedBox(
+              height: 60,
+              child: SearchTextFieldItem(
+                onChanged: ref.read(searchScreenNotifierProvider).load,
+              ),
             ),
             !readState.isLoading
                 ? SearchListItem(response: readState.githubResponse)
-                : const Center(child: CircularProgressIndicator()),
+                : SizedBox(
+                    width: deviceSize.width,
+                    //TODO あとでこのサイズを調整する
+                    height: deviceSize.height - 175,
+                    child: const Center(child: CircularProgressIndicator()),
+                  ),
           ],
         ),
       ),
